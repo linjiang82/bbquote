@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        TabView {
-            
-            Text("Breaking bad")
-                .tabItem { Label("Breaking Bad", systemImage: "tortoise") }
-            Text("Call soul")
-                .tabItem { Label("Better Call Saul", systemImage: "briefcase") }
-        }
-        .onAppear{
-             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
-        }
-        
+  
+  var body: some View {
+    TabView {
+      
+      QuoteView(show: Constants.BB)
+        .tabItem { Label(Constants.BB, systemImage: "tortoise") }
+      
+      QuoteView(show: Constants.BCS)
+        .tabItem { Label(Constants.BCS, systemImage: "briefcase") }
     }
+    .onAppear{
+      UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+    }
+    
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
